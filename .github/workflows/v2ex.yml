@@ -1,0 +1,25 @@
+name: V2EX签到
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout codes
+              uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                node-version: '12.x'
+            - name: Install
+              run: npm install
+            - name: Run app
+              run: node v2ex.js
+              env:
+                V2EXCK: ${{ secrets.V2EXCK }}
+                SCKEY: ${{ secrets.SCKEY }} 
