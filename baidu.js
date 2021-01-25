@@ -1,6 +1,6 @@
 const axios = require("axios");
 const common = require('./common');
-const cookie = process.env.BDUSS
+const cookie = process.env.BDCK
 
 CFG_isOrderBars = 'false' // 1: 经验排序, 2: 连签排序
 CFG_maxShowBars = 50 //每次通知数量
