@@ -14,7 +14,7 @@ const header = {
         'Sec-Fetch-Mode': 'no-cors',
         'Sec-Fetch-Site': 'same-site',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
-        'Cookie': `'${cookie}'`
+        'Cookie': `${cookie}`
     }
 };
 
