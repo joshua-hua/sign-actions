@@ -13,7 +13,7 @@ desc = []
 
 const header = {
     headers: {
-        'Host': "tieba.baidu.com",
+        'Host': 'tieba.baidu.com',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
         'Cookie': `${cookie}`
     }
