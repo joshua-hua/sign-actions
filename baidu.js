@@ -71,7 +71,6 @@ async function signbars(bars) {
             let url = 'https://tieba.baidu.com/sign/add';
             let param = `ie=utf-8&kw=${encodeURIComponent(bar.name)}&tbs=${tieba_obj.tbs}`;
             try {
-                console.log(url);
                 let data = await axios.post(url, param, header);
                 let _data = data.data;
                 bar.iscurSign = true
