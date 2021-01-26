@@ -68,10 +68,11 @@ async function signbars(bars) {
     bars.filter((bar) => !bar.isSign).forEach((bar) => _signbarCnt++)
     for (let bar of bars.filter((bar) => !bar.isSign)) {
         const signbarAct = async (resove) => {
-            let url = `https://tieba.baidu.com/sign/add?ie=utf-8&kw=${encodeURIComponent(bar.name)}&tbs=${tieba_obj.tbs}`;
+            let url = 'https://tieba.baidu.com/sign/add';
+            let param = `ie=utf-8&kw=${encodeURIComponent(bar.name)}&tbs=${tieba_obj.tbs}`;
             try {
                 console.log(url);
-                let data = await axios.post(url, header);
+                let data = await axios.post(url, param, header);
                 let _data = data.data;
                 bar.iscurSign = true
                 bar.issignSuc = _data.no === 0 || _data.no === 1101
