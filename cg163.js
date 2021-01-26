@@ -36,7 +36,6 @@ function sign() {
         try {
             const url = `https://n.cg.163.com/api/v2/sign-today`
             let res = await axios.post(url, "", header)
-            console.log(res.data)
             console.log("签到成功")
             desc.push("签到成功")
         } catch (err) {
