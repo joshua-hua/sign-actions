@@ -20,16 +20,16 @@ function sign() {
             let url = 'https://me.csdn.net/api/LuckyDraw_v2/signIn'
             let res = await axios.get(url, header)
             if (res.data.code === 200 && res.data.data && res.data.data.msg) {
-                console.log(res.data.data.msg)
+                console.log(`[签到]${res.data.data.msg}\n`)
                 signStatus = true;
-                desc.push(`${res.data.data.msg}`)
+                desc.push(`[签到]${res.data.data.msg}\n`)
             } else {
-                console.log(res.data)
-                desc.push(`${res.data}`)
+                console.log(`[签到]${res.data}\n`)
+                desc.push(`[签到]${res.data}\n`)
             }
         } catch (err) {
-            console.log("操作失败" + err.response.data.message)
-            desc.push(`${err}`)
+            console.log(`[签到]${err.response.data.message}\n`)
+            desc.push(`[签到]${err.response.data.message}\n`)
         }
         resolve()
     })
@@ -42,16 +42,16 @@ function luck() {
             let url = 'https://me.csdn.net/api/LuckyDraw_v2/goodluck'
             let res = await axios.get(url, header)
             if (res.data.code === 200 && res.data.data && res.data.data.msg) {
-                console.log(res.data.data.msg)
+                console.log(`[抽奖]${res.data.data.msg}\n`)
                 luckStatus = true;
-                desc.push(`${res.data.data.msg}`)
+                desc.push(`[抽奖]${res.data.data.msg}\n`)
             } else {
-                console.log(res.data)
-                desc.push(`${res.data}`)
+                console.log(`[抽奖]${res.data}\n`)
+                desc.push(`[抽奖]${res.data}\n`)
             }
         } catch (err) {
-            console.log("操作失败" + err.response.data.message)
-            desc.push(`${err}`)
+            console.log(`[抽奖]${err.response.data.message}\n`)
+            desc.push(`[抽奖]${err.response.data.message}\n`)
         }
         resolve()
     })
@@ -60,9 +60,7 @@ function luck() {
 // 发送消息
 function message() {
     return new Promise(async (resolve) => {
-        let signTitle = `${signStatus ? '🟢' : '🔴'}签到`;
-        let luckTitle = `${luckStatus ? '🟢' : '🔴'}抽奖`;
-        await common.sendMessage(signTitle + luckTitle, desc);
+        await common.sendMessage('CSDN签到抽奖', desc);
         resolve()
     })
 }

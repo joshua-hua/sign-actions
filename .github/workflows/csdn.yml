@@ -1,4 +1,4 @@
-name: CSDN签到
+name: CSDN签到抽奖
 
 on:
   push:
