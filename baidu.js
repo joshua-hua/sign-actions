@@ -83,7 +83,7 @@ async function signbars(bars) {
                 bar.iscurSign = true
                 bar.issignSuc = false
                 bar.signNo = null
-                bar.signMsg = err !== null ? error : e
+                bar.signMsg = e
                 console.log(e)
             } finally {
                 console.log(`❕ 百度贴吧:【${bar.name}】签到完成!`)
