@@ -43,11 +43,7 @@ async function start() {
     if (fs.existsSync(path)) {
         content = fs.readFileSync(path, "utf8");
     }
-    let t = content.match(/【签到概览】:((.|\n)*)【签到总计】/)
-    let res = t ? t[1].replace(/\n/, '') : '失败'
-    let t2 = content.match(/【签到总计】:((.|\n)*)【账号总计】/)
-    let res2 = t2 ? t2[1].replace(/\n/, '') : '总计0'
-    await common.sendMessage("" + ` ${res2} ` + ` ${res} ` + new Date().toLocaleDateString(), content);
+    await common.sendMessage("京东签到", content);
 }
 
 start()
