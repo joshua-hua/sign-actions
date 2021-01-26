@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/fashionzzZ/sign-actions#readme",
   "dependencies": {
+    "download": "^8.0.0",
     "axios": "> = 0.21.1"
   }
 }
