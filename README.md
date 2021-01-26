@@ -11,4 +11,5 @@
 | 京东 | [jd.js](./jd.js) | JD_COOKIE - 京东的cookie | 🟢 |
 | 什么值得买 | [smzdm.js](./smzdm.js) | SMZDM_COOKIE - 什么值得买的cookie | 🟢 |
 | CSDN | [csdn.js](./csdn.js) | CSDN_COOKIE - CSDN的cookie | 🟢 |
+| 网易云游戏 | [cg163.js](./cg163.js) | CG163_TOKEN - 网易云游戏的token | 🟢 |
 
