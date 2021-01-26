@@ -60,7 +60,7 @@ function luck() {
 // 发送消息
 function message() {
     return new Promise(async (resolve) => {
-        desc = desc.join('\n');
+        desc = desc.join('\n\n');
         await common.sendMessage('CSDN签到抽奖', desc);
         resolve()
     })
