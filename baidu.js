@@ -86,13 +86,11 @@ async function signbars(bars) {
                 bar.signMsg = e
                 console.log(e)
             } finally {
-                console.log(`❕ 百度贴吧:【${bar.name}】签到完成!`)
                 resove()
             }
         }
         signbarActs.push(new Promise(signbarAct))
         if (signbarActs.length === CFG_maxSignBars || _signbarCnt === _curbarIdx) {
-            console.log('', `⏳ 正在发起 ${signbarActs.length} 个签到任务!`)
             await Promise.all(signbarActs)
             await wait(CFG_signWaitTime)
             signbarActs = []
@@ -163,10 +161,11 @@ function showmsg() {
                 const _descinfo = []
                 let name = '百度签到'
                 _descinfo.push(`共签: ${allsignCnt}/${allbarCnt}, 本次成功: ${cursignCnt}, 本次失败: ${curfailCnt}`)
+                console.log('签到完成')
+                console.log(_descinfo.join('\n'))
                 _descinfo.push(`第 ${_curPage++}/${_totalPage} 页`)
                 subt = `${tiebasubt}, `
                 desc = [..._descinfo, '', ...desc].join('\n')
-                console.log(name, subt, desc)
                 common.sendMessage(name, subt + desc);
                 desc = []
             }
