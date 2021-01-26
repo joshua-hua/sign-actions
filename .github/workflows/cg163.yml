@@ -1,4 +1,4 @@
-name: 网易云游戏
+name: 网易云游戏签到
 
 on:
   push:
