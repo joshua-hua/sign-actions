@@ -52,7 +52,7 @@ async function start() {
     if (ckStatus === 1) {
         await sign()
     }
-    desc = desc.join('\n');
+    desc = desc.join('\n\n');
     await common.sendMessage('网易云游戏', desc);
 }
 
