@@ -10,4 +10,5 @@
 | 百度贴吧 | [baidu.js](./baidu.js) | BDCK - 百度的cookie  | 🟢    |
 | 京东 | [jd.js](./jd.js) | JD_COOKIE - 京东的cookie | 🟢 |
 | 什么值得买 | [smzdm.js](./smzdm.js) | SMZDM_COOKIE - 什么值得买的cookie | 🟢 |
+| CSDN | [csdn.js](./csdn.js) | CSDN_COOKIE - CSDN的cookie | 🟢 |
 
