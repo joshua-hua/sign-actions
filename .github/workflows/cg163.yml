@@ -1,25 +1,27 @@
 name: 网易云游戏签到
 
 on:
-#  push:
-#    branches: [ main ]
+  #  push:
+  #    branches: [ main ]
   schedule:
     - cron: '0 1 * * *'
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout codes
-              uses: actions/checkout@v2
-            - name: Use Node.js
-              uses: actions/setup-node@v1
-              with:
-                node-version: '12.x'
-            - name: Install
-              run: npm install
-            - name: Run app
-              run: node cg163.js
-              env:
-                CG163_TOKEN: ${{ secrets.CG163_TOKEN }}
-                SCKEY: ${{ secrets.SCKEY }} 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install
+        run: npm install
+      - name: Run app
+        run: node cg163.js
+        env:
+          CG163_TOKEN: ${{ secrets.CG163_TOKEN }}
+          SCKEY: ${{ secrets.SCKEY }}
+          QMSG_KEY: ${{ secrets.QMSG_KEY }}
+          TG_API: ${{ secrets.TG_API }}
