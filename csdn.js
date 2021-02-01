@@ -2,6 +2,7 @@ const axios = require("axios");
 const common = require('./common');
 const cookie = process.env.CSDN_COOKIE;
 
+const title = 'CSDN';
 let signStatus = false;
 let luckStatus = false;
 let desc = [];
@@ -20,16 +21,13 @@ function sign() {
             let url = 'https://me.csdn.net/api/LuckyDraw_v2/signIn'
             let res = await axios.get(url, header)
             if (res.data.code === 200 && res.data.data && res.data.data.msg) {
-                console.log(`[签到]${res.data.data.msg}`)
                 signStatus = true;
-                desc.push(`[签到]${res.data.data.msg}`)
+                log(`[签到]${res.data.data.msg}`)
             } else {
-                console.log(`[签到]${res.data}`)
-                desc.push(`[签到]${res.data}`)
+                log(`[签到]${res.data}`)
             }
         } catch (err) {
-            console.log(`[签到]${err.response.data.message}`)
-            desc.push(`[签到]${err.response.data.message}`)
+            log(`[签到]${err.response.data.message}`)
         }
         resolve()
     })
@@ -42,26 +40,28 @@ function luck() {
             let url = 'https://me.csdn.net/api/LuckyDraw_v2/goodluck'
             let res = await axios.get(url, header)
             if (res.data.code === 200 && res.data.data && res.data.data.msg) {
-                console.log(`[抽奖]${res.data.data.msg}`)
                 luckStatus = true;
-                desc.push(`[抽奖]${res.data.data.msg}`)
+                log(`[抽奖]${res.data.data.msg}`)
             } else {
-                console.log(`[抽奖]${res.data}`)
-                desc.push(`[抽奖]${res.data}`)
+                log(`[抽奖]${res.data}`)
             }
         } catch (err) {
-            console.log(`[抽奖]${err.response.data.message}`)
-            desc.push(`[抽奖]${err.response.data.message}`)
+            log(`[抽奖]${err.response.data.message}`)
         }
         resolve()
     })
 }
 
+function log(text) {
+    console.log(text)
+    desc.push(text)
+}
+
 // 发送消息
 function message() {
     return new Promise(async (resolve) => {
-        desc = desc.join('\n\n');
-        await common.sendMessage('CSDN签到抽奖', desc);
+        desc = desc.join('\n');
+        await common.sendMessage(title, desc);
         resolve()
     })
 }

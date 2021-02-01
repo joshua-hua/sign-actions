@@ -1,24 +1,9 @@
-const axios = require("axios");
-const sckey = process.env.SCKEY;
+const message = require('./message');
 const UTC8 = new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000;
 
 // 发送消息通知
 exports.sendMessage = function (title, content) {
-    return new Promise(async (resolve) => {
-        try {
-            let url = `https://sc.ftqq.com/${sckey}.send`
-            let res = await axios.post(url, `text=${title}&desp=${content}`)
-            if (res.data.errmsg == 'success') {
-                console.log('server酱:发送成功')
-            } else {
-                console.log('server酱:发送失败')
-                console.log(res.data)
-            }
-        } catch (err) {
-            console.log('server酱:发送失败')
-        }
-        resolve();
-    });
+    message.send(title, content)
 }
 
 // 时间格式化

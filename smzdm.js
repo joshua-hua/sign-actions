@@ -2,6 +2,7 @@ const axios = require("axios");
 const common = require('./common');
 const cookie = process.env.SMZDM_COOKIE;
 
+const title = '什么值得买'
 const header = {
     headers: {
         'Host': 'zhiyou.smzdm.com',
@@ -23,7 +24,7 @@ function sign() {
                 data = res.data.error_msg
             }
             console.log(data);
-            await common.sendMessage("什么值得买", data);
+            await common.sendMessage(title, data);
         } catch (e) {
             console.log(e);
         }

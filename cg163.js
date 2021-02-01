@@ -2,6 +2,7 @@ const axios = require("axios");
 const common = require('./common');
 const token = process.env.CG163_TOKEN;
 
+const title = '网易云游戏'
 let desc = []
 let ckStatus;
 
@@ -18,13 +19,11 @@ function check() {
         try {
             const url = `https://n.cg.163.com/api/v2/users/@me`
             let res = await axios.get(url, header)
-            console.log("token未失效,即将开始签到...")
-            desc.push("token未失效,即将开始签到...")
             ckStatus = 1
+            log("token未失效,即将开始签到...")
         } catch (err) {
-            console.log("token已失效")
-            desc.push("token已失效")
             ckStatus = 0
+            log("token已失效")
         }
         resolve()
     })
@@ -36,14 +35,17 @@ function sign() {
         try {
             const url = `https://n.cg.163.com/api/v2/sign-today`
             let res = await axios.post(url, "", header)
-            console.log("签到成功")
-            desc.push("签到成功")
+            log("签到成功")
         } catch (err) {
-            console.log("签到失败,已签到过或其它未知原因")
-            desc.push("签到失败,已签到过或其它未知原因")
+            log("签到失败,已签到过或其它未知原因")
         }
         resolve()
     })
+}
+
+function log(text) {
+    console.log(text)
+    desc.push(text)
 }
 
 async function start() {
@@ -52,8 +54,8 @@ async function start() {
     if (ckStatus === 1) {
         await sign()
     }
-    desc = desc.join('\n\n');
-    await common.sendMessage('网易云游戏', desc);
+    desc = desc.join('\n');
+    await common.sendMessage(title, desc);
 }
 
 start();
