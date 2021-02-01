@@ -2,9 +2,13 @@
 
 
 
-`SCKEY - Server酱的SCKEY`
+| 通知渠道                          | 变量                                                         |
+| --------------------------------- | ------------------------------------------------------------ |
+| [Server酱](https://sc.ftqq.com/)  | SCKEY - Server酱的SCKEY                                      |
+| [Qmsg酱](https://qmsg.zendee.cn/) | QMSG_KEY - Qmsg酱的KEY（暂时只支持私发）                     |
+| [Telegram](https://telegram.org/) | TG_API  - 例：https://api.telegram.org/bot123456:ABCDEFG（替换为你的token）/sendMessage?chat_id=123456（替换为你的id） |
 
-| 名称     | 脚本                   | 变量                  | 状态 |
+| 平台名称   | 脚本                   | 变量                  | 状态 |
 | -------- | ---------------------- | --------------------- | ---- |
 | v2ex     | [v2ex.js](./v2ex.js)   | V2EXCK - v2ex的cookie | 🟢    |
 | 百度贴吧 | [baidu.js](./baidu.js) | BDCK - 百度的cookie  | 🟢    |
